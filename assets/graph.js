@@ -20,7 +20,7 @@ const refs={
  med:'https://classics.mit.edu/Antoninus/meditations.html',
  seneca:'https://en.wikisource.org/wiki/Moral_letters_to_Lucilius',
  diog:'https://en.wikisource.org/wiki/Lives_of_the_Eminent_Philosophers/Book_VII',
- neostoic:'https://iep.utm.edu/neo-stoicism/',
+ neostoic:'https://plato.stanford.edu/entries/justus-lipsius/',
  pig:'https://howtobeastoic.wordpress.com/',
  modern:'https://modernstoicism.com/',
  hadot:'https://iep.utm.edu/hadot/',
@@ -402,7 +402,7 @@ canvas.addEventListener('wheel',e=>{
 },{passive:false});
 canvas.addEventListener('keydown',e=>{
  if(e.key==='+'||e.key==='='){setScale(scale*1.15);e.preventDefault()}
- else if(e.key==='-'){setScale(scale/.15*0.13);e.preventDefault()}
+ else if(e.key==='-'){setScale(scale/1.15);e.preventDefault()}
  else if(e.key==='0'){resetView();e.preventDefault()}
  else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
   const i=visible.findIndex(n=>n.id===selected);
