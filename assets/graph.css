@@ -1,0 +1,46 @@
+
+/* СТОЯ — Граф знаний. Самостоятельный модуль без внешних библиотек. */
+#graph .graph-intro{margin-bottom:20px}
+#graph .graph-shell{background:#142722;border:1px solid #476052;border-radius:16px;overflow:hidden;box-shadow:0 25px 65px rgba(10,28,20,.19);color:#e8ecdf}
+#graph .graph-tools{padding:16px 18px;border-bottom:1px solid #385047;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#1a302a}
+#graph .graph-search{flex:1 1 230px;background:#233e35;border:1px solid #527262;color:#fff;border-radius:9px;padding:11px 14px;font:inherit;font-size:13px;min-width:180px}
+#graph .graph-search::placeholder{color:#abc1b2}
+#graph .graph-search:focus-visible{outline:2px solid #d7b77b;outline-offset:2px}
+#graph .graph-toolgroup{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#graph .graph-tool{background:#29483b;border:1px solid #587060;color:#edeee2;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;min-height:36px}
+#graph .graph-tool:hover,#graph .graph-tool:focus-visible{background:#3a5c4a;color:white}
+#graph .graph-tool.icon{font-size:18px;min-width:36px;padding:4px 10px}
+#graph .graph-filters{padding:12px 18px;display:flex;flex-wrap:wrap;gap:7px;border-bottom:1px solid #3d5449}
+#graph .graph-filter{background:transparent;border:1px solid #5a7363;color:#d3dfd2;font-size:11px;font-weight:700;border-radius:999px;padding:7px 11px;line-height:1.4}
+#graph .graph-filter.active{background:#e8d3a5;color:#233b30;border-color:#e8d3a5}
+#graph .graph-filter:not(.active){opacity:.66}
+#graph .graph-filter:focus-visible{outline:2px solid white;outline-offset:2px}
+#graph .graph-body{display:grid;grid-template-columns:minmax(0,1fr) 310px;min-height:590px}
+#graph .graph-stage{position:relative;min-height:560px;background:radial-gradient(ellipse at 48% 44%,#223e35 0%,#152b25 62%,#10211d 100%);overflow:hidden}
+#graph .graph-stage:before{content:"";position:absolute;inset:0;opacity:.24;pointer-events:none;background-image:radial-gradient(circle,#759181 1px,transparent 1px);background-size:27px 27px}
+#graph canvas{display:block;position:relative;z-index:1;width:100%;height:100%;touch-action:none;cursor:grab;outline:none}
+#graph canvas.dragging{cursor:grabbing}
+#graph canvas:focus-visible{outline:2px solid #d7b77b;outline-offset:-3px}
+#graph .graph-hint{position:absolute;bottom:12px;left:14px;z-index:2;font-size:11px;color:#b2c7b9;background:#142720c7;padding:7px 10px;border-radius:8px;pointer-events:none}
+#graph .graph-count{position:absolute;top:12px;left:14px;z-index:2;font-size:10px;color:#b2c7b9;letter-spacing:.06em;background:#142720b3;padding:6px 10px;border-radius:8px;pointer-events:none}
+#graph .graph-tooltip{position:absolute;pointer-events:none;z-index:3;background:#f5ebd8;color:#1d372b;border-radius:7px;padding:7px 10px;max-width:220px;font-size:12px;box-shadow:0 7px 25px #0006;display:none}
+#graph .graph-inspector{border-left:1px solid #435c4d;padding:23px 19px;background:#1a302a;overflow-wrap:anywhere}
+#graph .graph-inspector .graph-type{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#d4b77e}
+#graph .graph-inspector h3{font:normal 28px/1.25 var(--serif);color:#fcf4e3;margin:9px 0 12px}
+#graph .graph-inspector p{font-size:12px;color:#c5d5c6;line-height:1.8;margin:9px 0}
+#graph .graph-inspector h4{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#d3bb8d;margin:23px 0 9px}
+#graph .graph-inspector a{color:#f0cf90;font-size:12px;text-decoration:underline}
+#graph .graph-inspector .graph-action{display:inline-flex;align-items:center;justify-content:center;color:#203a30;background:#e3c68c;border:0;border-radius:7px;text-decoration:none;padding:9px 12px;font-size:12px;font-weight:800;margin:7px 8px 4px 0}
+#graph .graph-relations{display:flex;flex-wrap:wrap;gap:7px}
+#graph .graph-relation{background:#2c483d;color:#e3e8da;border:1px solid #5e7563;padding:7px 9px;font-size:11px;text-align:left;border-radius:7px}
+#graph .graph-relation:hover{background:#43624b}
+#graph .graph-results{padding:0 18px 12px;background:#1a302a;border-bottom:1px solid #3d5449;display:none}
+#graph .graph-results.show{display:block}
+#graph .graph-results-title{font-size:11px;color:#c0d1c4;margin:7px 0}
+#graph .graph-results-list{display:flex;gap:6px;flex-wrap:wrap}
+#graph .graph-result{background:#2c483d;color:#f4eddd;border:1px solid #536d5e;border-radius:7px;padding:6px 10px;font-size:11px}
+#graph .graph-result:hover{background:#42604d}
+#graph .graph-explain{font-size:12px;color:var(--muted);max-width:940px;line-height:1.8;margin-top:14px}
+#graph .graph-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--dot)}
+@media(max-width:1050px){#graph .graph-body{grid-template-columns:1fr}#graph .graph-stage{min-height:480px;height:480px}#graph .graph-inspector{border-left:0;border-top:1px solid #435c4d;min-height:0}}
+@media(max-width:600px){#graph .graph-stage{min-height:410px;height:410px}#graph .graph-tools{padding:12px}#graph .graph-filters{padding:11px 12px}#graph .graph-inspector{padding:17px}#graph .graph-hint{font-size:10px;max-width:80%}#graph .graph-toolgroup{width:100%;justify-content:space-between}}
