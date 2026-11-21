@@ -19,6 +19,7 @@ const refs={
  disc:'https://en.wikisource.org/wiki/Discourses_of_Epictetus',
  med:'https://classics.mit.edu/Antoninus/meditations.html',
  seneca:'https://en.wikisource.org/wiki/Moral_letters_to_Lucilius',
+ anger:'https://en.wikisource.org/wiki/Of_Anger/Book_III',
  diog:'https://en.wikisource.org/wiki/Lives_of_the_Eminent_Philosophers/Book_VII',
  neostoic:'https://plato.stanford.edu/entries/justus-lipsius/',
  pig:'https://howtobeastoic.wordpress.com/',
@@ -96,7 +97,7 @@ function edge(a,b,relation){
  ['10','Не делай себя центром','Оставляй место взглядам и опыту других.'],
  ['11','Не осуждай поспешно','Отделяй наблюдение от домыслов о мотивах.'],
  ['12','Размышляй о дне','Отмечай поступки и находи следующий шаг.']
-].forEach(x=>add('r:'+x[0],x[1],'rule',x[2],'exercises',x[0],refs.ench));
+].forEach(x=>add('r:'+x[0],x[1],'rule',x[2],'exercises',x[0],x[0]==='12'?refs.anger:refs.ench));
 [
  ['ench','Энхиридион','Краткое руководство Эпиктета, записанное Аррианом.','ench'],
  ['disc','Беседы Эпиктета','Записи философских бесед, сделанные Аррианом.','disc'],
@@ -108,9 +109,9 @@ function edge(a,b,relation){
  ['new','Новый стоицизм','Светское переосмысление Лоуренса Беккера.','sep']
 ].forEach(x=>add('w:'+x[0],x[1],'work',x[2],'sources','',refs[x[3]]));
 [
- ['p:zeno','p:cleanthes','преемник'],['p:cleanthes','p:chrys','преемник'],
+ ['p:zeno','p:cleanthes','линия преемственности'],['p:cleanthes','p:chrys','линия преемственности'],
  ['p:chrys','p:panaetius','традиция'],['p:panaetius','p:posidonius','традиция'],
- ['p:panaetius','p:cicero','использовал учение'],['p:musonius','p:epictetus','учитель'],
+ ['p:panaetius','p:cicero','влияние на трактат'],['p:musonius','p:epictetus','учитель — ученик'],
  ['p:epictetus','p:marcus','влияние'],['p:seneca','p:lipsius','переосмысление'],
  ['p:epictetus','p:ellis','влияние'],['p:epictetus','p:pigliucci','переосмысление'],
  ['p:epictetus','p:robertson','современное прочтение'],
